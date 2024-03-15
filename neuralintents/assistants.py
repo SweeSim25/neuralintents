@@ -85,7 +85,7 @@ class BasicAssistant:
 
         if self.hidden_layers is None:
             self.model = Sequential()
-            self.model.add(InputLayer(input_shape=(None, X.shape[1])))
+            self.model.add(InputLayer(shape=(None, X.shape[1])))
             self.model.add(Dense(128, activation='relu'))
             self.model.add(Dropout(0.5))
             self.model.add(Dense(64, activation='relu'))
@@ -93,7 +93,7 @@ class BasicAssistant:
             self.model.add(Dense(y.shape[1], activation='softmax'))
         else:
             self.model = Sequential()
-            self.model.add(InputLayer(input_shape=(None, X.shape[1])))
+            self.model.add(InputLayer(shape=(None, X.shape[1])))
             for layer in self.hidden_layers:
                 self.model.add(layer)
             self.model.add(Dense(y.shape[1], activation='softmax'))
